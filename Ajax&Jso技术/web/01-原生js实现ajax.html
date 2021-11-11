@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-原生js实现ajax</title>
+    <script>
+        //原生的js实现ajax方式—————与服务器通信——发送请求
+        function fun() {
+            //1.创建核心对象XMLHttpRequest
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            /**
+             * 2.创建与服务器的连接
+             *   xmlhttp.open(method,url,async)
+             *       * method参数：规定请求方式：GET或POST
+             *       * url参数：请求文件url
+             *       * async参数：true(同步)或false(异步)
+             */
+            xmlhttp.open("GET", "ajaxServlet?username='Tom'", true)
+            /**
+             * 3.向服务器发送请求
+             *   xmlhttp.send(String)
+             *       * String参数：
+             *          当请求方式为GET时，可以设置String参数为null,将请求参数追加到url后面
+             *          当请求方式为POST时，可以设置String参数，指定请求的参数
+             */
+            xmlhttp.send()
+            /**
+             * 4.处理服务器响应
+             *     * 处理字符串响应：xmlhttp.responseText
+             */
+            xmlhttp.onreadystatechange = function () {
+                //判断请求状态和是请求否成功,
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    //获取字符串的处理结果
+                    var responsetext = xmlhttp.responseText;
+                    alert(responsetext)
+
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="发送异步请求" onclick="fun()">
+<input type="text" >
+</body>
+</html>

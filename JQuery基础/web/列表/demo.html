@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css1.css"/>
+    <title>列表的增删和移动</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        //绑定页面加载事件
+        $(function () {
+
+            //上移;当点击span中[上移]时，这里要移动的是该[上移]所在的整个li
+            $("span.list-up").click(function () {
+                var $Li = $(this).parents("li");
+                $Li.prev().before($Li);
+            })
+            //下移:当点击span中的[下移]时，移动的是该[下移]所在的整个li
+            $("span.list-down").click(function () {
+                var $li = $(this).parents("li");
+                $li.next().after($li)
+            })
+            //删除:当点击span中的[删除]时，删除的是该[删除]所在的整个li
+            $("span.list-del").click(function () {
+                var $li = $(this).parents("li");
+                $li.remove()
+            })
+            //展示添加：当点击添加时，移除div1的list-hide类,完成显示添加的div
+            $("span.list-add-show").click(function () {
+                $("#div1").removeClass("list-hide")
+            })
+            //取消展示添加:当点击添加时,添加div1的list-hide类，完成隐藏添加的div
+            $("#bt2").click(function () {
+                $("#div1").addClass("list-hide")
+            })
+            //完成添加：当点击添加按钮时，完成添加
+            $(".list-add-add").click(function () {
+                var text=$(".list-add-input").val();    //获取表单输入的值
+                $(".list-ul").append(" <li class=\"list-option\">\n" +
+                    "                <input class=\"list-input\" type=\"text\" value="+text+">\n" +
+                    "                <span class=\"list-btn\">\n" +
+                    "              <span class=\"list-up\">[上移]</span>\n" +
+                    "              <span class=\"list-down\">[下移]</span>\n" +
+                    "              <span class=\"list-del\">[删除]</span>\n" +
+                    "            </span>\n" +
+                    "            </li>")
+                $(".list-add-input").val("");
+            })
+
+            /**
+             * 托管事件：让子元素的事件冒泡到父元素或者祖先元素上，在进行具体处理
+             */
+            //上移
+            $("body").on("click","span.list-up",function () {
+                var $Li = $(this).parents("li");
+                $Li.prev().before($Li);
+            })
+            //下移
+            $("body").on("click","span.list-down",function () {
+                var $Li = $(this).parents("li");
+                $Li.next().after($Li);
+            })
+            //删除：
+            $("body").on("click","span.list-del",function () {
+                var $Li = $(this).parents("li");
+                $Li.remove()
+            })
+
+
+
+
+        })
+
+
+    </script>
+</head>
+<body>
+<form>
+    <div class="list">
+        <ul class="list-ul">
+            <li class="list-option">
+                <input class="list-input" type="text" value="HTML+CSS">
+                <span class="list-btn">
+              <span class="list-up">[上移]</span>
+              <span class="list-down">[下移]</span>
+              <span class="list-del">[删除]</span>
+            </span>
+            </li>
+            <li class="list-option">
+                <input class="list-input" type="text" value="JavaScript">
+                <span class="list-btn">
+              <span class="list-up">[上移]</span>
+              <span class="list-down">[下移]</span>
+              <span class="list-del">[删除]</span>
+            </span>
+            </li>
+            <li class="list-option">
+                <input class="list-input" type="text" value="c">
+                <span class="list-btn">
+              <span class="list-up">[上移]</span>
+              <span class="list-down">[下移]</span>
+              <span class="list-del">[删除]</span>
+            </span>
+            </li>
+
+        </ul>
+        <div class="list-bottom">
+            <span id="show" class="list-add-show"><span>添加项目</span></span>
+            <div id="div1" class="list-add-area list-hide">
+                添加到列表：
+                <input class="list-add-input" type="text" name="list[]">
+                <input id="bt1" class="list-add-add" type="button" value="添加">
+                <input id="bt2" class="list-add-cancel" type="button" value="取消">
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

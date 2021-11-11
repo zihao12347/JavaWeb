@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="JPS语言技术:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/JPS_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="JPS语言技术/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="JPS语言技术" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

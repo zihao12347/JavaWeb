@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Ajax&amp;Jso技术:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Ajax_Jso_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Ajax&amp;Jso技术/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Ajax&amp;Jso技术" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

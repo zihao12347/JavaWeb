@@ -1,0 +1,73 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>星星评分</title>
+    <link rel="stylesheet" type="text/css" href="css1.css"/>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            //显示星星
+            $("ul li").mouseenter(function () {
+                //显示当前移入到的星星，以及前面的所有星星
+                $(this).css("background-position","0 -28px").prevAll().css("background-position","0 -28px");
+                $("span").text($(this).attr("title"));
+            })
+            //取消显示星星
+            $("ul li").mouseleave(function () {
+                //取消显示当前移入到的星星以及后面的所有星星
+                $(this).css("background-position","0 0px").nextAll().css("background-position","0 0px");
+                $("span").text($(this).attr("title"));
+            })
+            //点击星星
+            var text=null;
+            $("ul li").click(function () {
+                //1.解除mouseenter事件和mouseleave事件
+                $("ul li").off("mouseenter").off("mouseleave");
+                $(this).css("background-position","0 -28px").prevAll().css("background-position","0 -28px");
+                text=$(this).attr("title")
+                $("span").text(text);
+
+              // ******当重新点击星星，取消显示当前移入星星的后面的的星星
+               $(this).nextAll().css("background-position","0 0px")
+
+                //解除按键的失效
+                $("button").prop("disabled",false);
+            })
+            //提交事件————只能提交一次
+            $("button").one("click",function () {
+                alert(text+":谢谢评价！")
+            })
+
+
+
+
+        })
+
+
+
+
+    </script>
+
+
+</head>
+
+<body>
+<div id="div1">
+    <ul>
+        <li title="一星差评，呵呵呵，差的忍无可忍！！！"></li>
+        <li title="二星差评"></li>
+        <li title="三星差评"></li>
+        <li title="四星中评"></li>
+        <li title="五星中评"></li>
+        <li title="六星中评"></li>
+        <li title="七星好评"></li>
+        <li title="八星好评"></li>
+        <li title="九星好评"></li>
+        <li title="十星满评！！！666,酷毙了！！！"></li>
+        <span></span>
+    </ul>
+    <button disabled>提交</button>
+</div>
+</body>
+</html>

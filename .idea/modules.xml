@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Ajax&amp;Jso技术/Ajax&amp;Jso技术.iml" filepath="$PROJECT_DIR$/Ajax&amp;Jso技术/Ajax&amp;Jso技术.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JPS语言技术/JPS语言技术.iml" filepath="$PROJECT_DIR$/JPS语言技术/JPS语言技术.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JQuery基础/JQuery基础.iml" filepath="$PROJECT_DIR$/JQuery基础/JQuery基础.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JQuery高级/JQuery高级.iml" filepath="$PROJECT_DIR$/JQuery高级/JQuery高级.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaBean/JavaBean.iml" filepath="$PROJECT_DIR$/JavaBean/JavaBean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaWeb技术二.iml" filepath="$PROJECT_DIR$/JavaWeb技术二.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Jedis数据库/Jedis数据库.iml" filepath="$PROJECT_DIR$/Jedis数据库/Jedis数据库.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Servlet/Servlet.iml" filepath="$PROJECT_DIR$/Servlet/Servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cookiea&amp;session/cookiea&amp;session.iml" filepath="$PROJECT_DIR$/cookiea&amp;session/cookiea&amp;session.iml" />
+      <module fileurl="file://$PROJECT_DIR$/filter&amp;listen/filter&amp;listen.iml" filepath="$PROJECT_DIR$/filter&amp;listen/filter&amp;listen.iml" />
+    </modules>
+  </component>
+</project>

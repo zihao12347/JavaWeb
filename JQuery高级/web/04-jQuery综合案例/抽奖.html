@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jquery案例之抽奖</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+
+    <script language='javascript' type='text/javascript'>
+
+        /*
+            分析：
+               1.给开始按键绑定单击事件
+                    1.1定义一个循环定时器interval，让小相框图片每隔多少毫秒滚动
+                    1.2切换小相框图片，
+                        *定义一个数组存放图片scr
+                        * 随机生成一个0-6之间的数组索引,用于图片之间的切换
+               2.给结束按键绑定事件
+                    2.1停止定时器
+                    2.2给大相框设置src图片显示小相框停止的图片
+        */
+        $(function () {
+            //细节优化1.处理按键是否可用
+            $("#startID").prop("disabled",false)
+            $("#stopID").prop("disabled",true)
+
+            //创建一个图片路径数组
+            var imgs = [
+                "../img/man00.jpg",
+                "../img/man01.jpg",
+                "../img/man02.jpg",
+                "../img/man03.jpg",
+                "../img/man04.jpg",
+                "../img/man05.jpg",
+                "../img/man06.jpg",]
+
+            //声明一个0-6之间随机引索数
+            var index;
+            //声明startid定时器的返回值
+            var startid;
+            //给开始按键绑定事件
+            $("#startID").click(function () {
+                $("#startID").prop("disabled",true)
+                $("#stopID").prop("disabled",false)
+                //定义一个定时器
+                startid=setInterval(function () {
+                    index=Math.floor(Math.random()*7)
+                    //设置小相框的src属性
+                    $("#img1ID").prop("src",imgs[index])
+                },20)
+            })
+            //给结束按键绑定事件
+            $("#stopID").click(function () {
+                $("#startID").prop("disabled",false)
+                $("#stopID").prop("disabled",true)
+                //1.停止定时器
+                clearInterval(startid)
+                //2.给大相框设置src图片显示小相框停止的图片
+                    //细节处理2.使得图片动画的出现
+                $("#img2ID").prop("src",imgs[index]).hide()
+                $("#img2ID").show(1000)
+            })
+        })
+
+
+    </script>
+
+</head>
+<body>
+
+<!-- 小像框 -->
+<div style="border-style:dotted;width:160px;height:100px">
+    <img id="img1ID" src="../img/man00.jpg" style="width:160px;height:100px"/>
+</div>
+
+<!-- 大像框 -->
+<div
+        style="border-style:double;width:800px;height:500px;position:absolute;left:500px;top:10px">
+    <img id="img2ID" src="../img/man00.jpg" width="800px" height="500px"/>
+</div>
+
+<!-- 开始按钮 -->
+<input
+        id="startID"
+        type="button"
+        value="点击开始"
+        style="width:150px;height:150px;font-size:22px">
+
+<!-- 停止按钮 -->
+<input
+        id="stopID"
+        type="button"
+        value="点击停止"
+        style="width:150px;height:150px;font-size:22px">
+
+
+</body>
+</html>

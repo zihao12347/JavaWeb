@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-事件绑定</title>
+    <!--引入外部的js文件-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        //1.绑定页面加载事件
+        $(function () {
+            //一：当页面加载完成将div1对象的背景色改为红颜色的
+            $("#div1").css("backgroundColor","pink")
+            //二.获取b1元素对象
+            var b1=$("#b1")
+            //给b1元素对象添加绑定单击事件
+            b1.click(function () {
+                alert("abc")
+            })
+        })
+
+
+
+    </script>
+</head>
+<body>
+<div id="div1">div1...</div>
+<div id="div2">div2...</div>
+<input type="button" value="点我" id="b1">
+
+</body>
+</html>
